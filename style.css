@@ -1,0 +1,264 @@
+@font-face {
+    font-family: "Saeada";
+    src: url("/assets/fonts/LTSaeada-Black.otf") format("opentype");
+}
+
+* {
+    font-family: Saeada, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: white;
+    overflow: hidden;
+}
+
+#webgl {
+    width: 100vw;
+    height: 100vh;
+    pointer-events: auto;
+}
+
+#cssLeftMonitor {
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#cssRightMonitor {
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#drawing-canvas {
+    background-color: #ffffff;
+    display: none;
+}
+
+.banner {
+    display: flex;
+    background-color: #000000;
+    color: #eda72d;
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 1.5vw;
+    position: absolute;
+    top: -90px;
+    height: 60px;
+    left: 0;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    transition: top 0.2s ease-in-out;
+}
+
+.banner-link {
+    text-align: center;
+    user-select: none;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 1vw;
+    transition: 0.2s ease-in-out;
+}
+
+.banner-link:hover {
+    font-size: 1.75vw;
+}
+
+.circular-button {
+    position: absolute;
+    display: block;
+    bottom: 50px;
+    left: 50px;
+    width: 100px;
+    opacity: 0;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #15907b;
+    text-align: center;
+    line-height: 100px;
+    text-decoration: none;
+    visibility: hidden;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 1s, visibility 1s, background-size 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    background-image: url("/assets/svg/arrow-back.svg");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.show-back-button {
+    visibility: visible;
+    opacity: 1;
+}
+
+.circular-button:hover {
+    background-size: 75%;
+}
+
+.button-row {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    width: 100vw;
+    bottom: 100px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    transition: opacity 1s, visibility 1s;
+}
+
+.show-button-row {
+    visibility: visible;
+    opacity: 1;
+}
+
+.circular-button-whiteboard {
+    display: inline-block;
+    transition: opacity 1s, visibility 1s, background-size 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    width: 70px;
+    height: 70px;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 5px solid #ffffff00;
+    border-radius: 50%;
+    background-color: #15907b;
+    margin: 0px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.whiteboard-selected {
+    border: 5px solid #eda72d;
+}
+
+.rubik-message {
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    color: #eda72d;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    user-select: none;
+    font-size: 1.5rem;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.show-rubik-message {
+    visibility: visible;
+    opacity: 1;
+}
+
+.audio-button {
+    transition: opacity 1s, visibility 1s, background-size 0.2s ease-in-out,
+        0.2s ease-in-out, background-image 1s ease-in-out;
+    position: absolute;
+    display: block;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #15907b;
+    text-align: center;
+    line-height: 100px;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: opacity 1s, visibility 1s, background-size 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    background-image: url("/assets/svg/audio-volume-high.svg");
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.audio-button:hover {
+    opacity: 1;
+}
+
+.audio-button-muted {
+    background-image: url("/assets/svg/audio-volume-muted.svg");
+}
+
+.circular-button-whiteboard:hover {
+    background-size: 80%;
+}
+
+.loadingScreen {
+    user-select: none;
+    border: solid 0.5em #ffffff;
+    width: 20vmin;
+    aspect-ratio: 1;
+    text-align: center;
+    color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 50%;
+    background: #000000;
+    --mask: linear-gradient(#000000, #000000) padding-box,
+        conic-gradient(#000000 var(--p, 0%), transparent 0%) border-box;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    transform: translate(-50%, -50%);
+    display: flex;
+    text-align: center;
+    font-size: 1.7em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 1);
+    transition: visibility 1s ease, opacity 1s ease, color 1s ease,
+        font-size 0.5s ease;
+    
+}
+
+.loading-screen-hover:hover {
+    font-size: 1.5em;
+    color: #0a5962;
+}
+
+.finished-load {
+    color: #ffffff !important;
+}
+
+.show-loading-screen {
+    visibility: visible;
+    opacity: 1;
+}
+
+.show-audio-button {
+    visibility: visible;
+    opacity: 0.4;
+}
+
+.mobile-text {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    width: 60%;
+    color: #eda72d;
+    z-index: 9999;
+}
