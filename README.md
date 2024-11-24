@@ -1,8 +1,11 @@
-# 3D Portfolio Website #
+# Aniket Kit's Portfolio Website #
 
 Welcome to my 3D portfolio website GitHub repository! This project showcases my work and creativity in an interactive 3D environment, built using Three.js.
 
-## 🌟Features
+You can explore it [here](https://aniketkit.vercel.app/).
+___
+
+## 🌟 Features ##
 
 * 3D Environment: Fully interactive 3D portfolio website with immersive visuals.
 
@@ -18,7 +21,8 @@ Welcome to my 3D portfolio website GitHub repository! This project showcases my 
 
 * Lighting Effects: Realistic lighting and shadow effects for enhanced visuals.
 
-## 🛠️Technologies Used
+___
+## 🛠️ Technologies Used
 
 * Three.js: For rendering 3D objects and animations.
 
@@ -32,5 +36,12 @@ Welcome to my 3D portfolio website GitHub repository! This project showcases my 
 
 * Vite: Used as the development and build tool.
 
-## 🖼️Preview##
+___
+## 🖼️ Preview ##
 
+<img src="public/assets/social/screenshot.png" alt="Project preview">
+
+___
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
